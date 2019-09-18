@@ -4,6 +4,7 @@
       <h2>{{ booking.name }}</h2>
       <p>{{ booking.email }}</p>
 
+      <button v-on:click="handleDelete(booking._id)">Delete Booking</button>
     </div>
 
   </div>
@@ -11,10 +12,17 @@
 
 <script>
 import BookingService from '../services/BookingService';
+import { eventBus } from '../main';
 
 export default {
   name: "bookings-list",
-  props: ["bookings"]
+  props: ["bookings"],
+  methods: {
+    handleDelete(id) {
+      BookingService.deleteBooking(id)
+      .then(res => eventBus.$emit('booking-deleted', id));
+    }
+  }
 }
 
 </script>
