@@ -3,6 +3,7 @@
     <div class="booking" v-for="booking in bookings">
       <h2>{{ booking.name }}</h2>
       <p>{{ booking.email }}</p>
+      <p>Checked In: {{ booking.checkedIn }}</p>
 
       <button v-on:click="handleDelete(booking._id)">Delete Booking</button>
     </div>

@@ -9,6 +9,16 @@
       <label for="email">Email:</label>
       <input type="text" id="email" v-model="email" />
     </div>
+    <div class="formWrap">
+      <span>Checked In: </span>
+      <select v-model="checkedIn" >
+        <option disabled value=""></option>
+        <option >yes</option>
+        <option >no</option>
+      </select>
+      <!-- <label for="checkedIn">Checked In:</label>
+      <input type="text" id="checkedIn" v-model="checkedIn" /> -->
+    </div>
       <input type="submit" id="save" value="Save" />
   </form>
 </template>
@@ -23,7 +33,8 @@ export default {
   data(){
     return {
       name: '',
-      email: ''
+      email: '',
+      checkedIn: ''
     }
   },
   methods: {
@@ -31,12 +42,14 @@ export default {
       event.preventDefault()
       const newBooking = {
         name: this.name,
-        email: this.email
+        email: this.email,
+        checkedIn: this.checkedIn
       }
       BookingService.postBooking(newBooking)
       .then(res => eventBus.$emit('booking-added', res))
       this.name = ''
       this.email = ''
+      this.checkedIn = ''
     }
   }
 }

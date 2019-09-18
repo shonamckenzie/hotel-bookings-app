@@ -4,14 +4,17 @@ db.dropDatabase();
 db.bookings.insertMany([
     {
         name: "melinda windows",
-        email: "melinda@gmail.com"
+        email: "melinda@gmail.com",
+        checkedIn: true
     },
     {
         name: "morag disk",
-        email: "morag@gmail.com"
+        email: "morag@gmail.com",
+        checkedIn: false
     },
     {
         name: "tony chat",
-        email: "tony@gmail.com"
+        email: "tony@gmail.com",
+        checkedIn: false
     }
 ]);
