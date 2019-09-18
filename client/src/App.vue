@@ -27,7 +27,6 @@ export default {
 
     eventBus.$on('booking-added', (booking) => {
       this.bookings.push(booking)
-      completed: false
     })
   },
   methods: {

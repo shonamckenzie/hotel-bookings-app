@@ -35,6 +35,8 @@ export default {
       }
       BookingService.postBooking(newBooking)
       .then(res => eventBus.$emit('booking-added', res))
+      this.name = '';
+      this.email = '';
     }
   }
 }
